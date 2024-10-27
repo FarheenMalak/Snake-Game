@@ -1,146 +1,60 @@
-/* Reset Styles */
+/* General Styles */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* Body Styles */
 body {
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f7fa;
+    padding: 20px;
 }
 
-/* Game Container */
-.game-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
+.container {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
 }
 
-/* Title */
-.game-title {
-  font-size: 2.5rem;
-  color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+.title {
+    font-size: 2rem;
+    padding: 10px;
+    background: #59249e;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
-/* Game Board */
-.game-board {
-  width: 90vmin;
-  height: 90vmin;
-  max-width: 400px;
-  max-height: 400px;
-  background-color: #000;
-  display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  grid-template-rows: repeat(20, 1fr);
-  gap: 1px;
-  border: 4px solid white;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+canvas {
+    border: 2px solid #59249e;
+    background-color: #e0f7fa;
+    display: block;
+    margin: 0 auto;
 }
 
-/* Snake and Food Styling */
-.cell {
-  background-color: transparent;
-  transition: background-color 0.2s ease;
-}
-
-.snake {
-  background-color: #39ff14;
-  border-radius: 50%;
-  animation: snake-move 0.5s infinite;
-}
-
-.food {
-  background-color: red;
-  border-radius: 50%;
-  animation: bounce 0.6s infinite;
-}
-
-/* Animations */
-@keyframes snake-move {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* Game Info */
-.game-info {
-  display: flex;
-  justify-content: space-between;
-  width: 90vmin;
-  max-width: 400px;
-}
-
-#scoreDisplay {
-  color: white;
-  font-size: 1.2rem;
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
 }
 
 button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+    padding: 15px;
+    font-size: 1.5rem;
+    border: none;
+    background-color: #59249e;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 5px;
 }
 
-button:hover {
-  background-color: #388e3c;
-}
-
-/* Controls for Mobile */
-.controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-.horizontal-controls {
-  display: flex;
-  gap: 10px;
-}
-
-.control-btn {
-  background-color: #333;
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  font-size: 1.5rem;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.control-btn:hover {
-  background-color: #444;
-}
-
-/* Responsive Styling */
-@media (max-width: 480px) {
-  .game-title {
-    font-size: 2rem;
-  }
-
-  button {
-    font-size: 0.9rem;
-    padding: 8px;
-  }
+button:active {
+    background-color: #4a1e7a;
 }
