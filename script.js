@@ -14,10 +14,10 @@ let score = 0;
 
 // Event listeners for keyboard and buttons
 document.addEventListener('keydown', changeDirection);
-document.getElementById('up').addEventListener('onclick', () => setDirection(0, -1));
-document.getElementById('left').addEventListener('onclick', () => setDirection(-1, 0));
-document.getElementById('down').addEventListener('onclick', () => setDirection(0, 1));
-document.getElementById('right').addEventListener('onclick', () => setDirection(1, 0));
+document.getElementById('up').addEventListener('click', () => setDirection(0, -1));
+document.getElementById('left').addEventListener('click', () => setDirection(-1, 0));
+document.getElementById('down').addEventListener('click', () => setDirection(0, 1));
+document.getElementById('right').addEventListener('click', () => setDirection(1, 0));
 
 // Start the game loop
 let game = setInterval(drawGame, 200); // Set interval for movement
@@ -70,7 +70,8 @@ function changeDirection(event) {
 }
 
 function setDirection(x, y) {
-    if (x !== -direction.x && y !== -direction.y) { // Prevent reverse direction
+    // Prevent the snake from reversing
+    if (x !== -direction.x || y !== -direction.y) {
         direction = { x, y };
     }
 }
