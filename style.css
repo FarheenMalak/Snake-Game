@@ -15,7 +15,9 @@ body {
     background: #1e1e1e; /* Dark background */
     padding: 20px;
 }
-
+img{
+    margin-top:20px;
+}
 .container {
     width: 90%;
     max-width: 500px;
