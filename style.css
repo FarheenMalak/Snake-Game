@@ -15,16 +15,21 @@ body {
     background: #1e1e1e; /* Dark background */
     padding: 20px;
 }
-img{
-    margin-top:20px;
+
+img {
+    width: 100%; /* Ensure image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 15px 15px 0 0; /* Rounded corners on the top of the image */
+    display: block; /* Ensure the image behaves as a block element */
 }
+
 .container {
     width: 90%;
     max-width: 500px;
     text-align: center;
     background-color: #2a2a2a; /* Slightly lighter background for the container */
     border-radius: 15px; /* Rounded corners for the container */
-    padding: 20px; /* Padding around the content */
+    padding: 0; /* Remove padding to ensure no gaps */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
 }
 
@@ -34,7 +39,7 @@ img{
     background: #3792cb; /* Classy blue for title background */
     color: white;
     border-radius: 10px;
-    margin-bottom: 15px;
+    margin: 0; /* Remove margin to eliminate spacing issues */
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Subtle text shadow */
 }
 
@@ -58,7 +63,7 @@ button {
     padding: 15px;
     font-size: 1.5rem;
     border: none;
-    background-color:#3792cb; /* Button background in blue */
+    background-color: #3792cb; /* Button background in blue */
     color: white;
     border-radius: 10px;
     cursor: pointer;
