@@ -3,7 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #f5f7fa;
+    background: #1e1e1e; /* Dark background */
     padding: 20px;
 }
 
@@ -19,22 +19,28 @@ body {
     width: 90%;
     max-width: 500px;
     text-align: center;
+    background-color: #2a2a2a; /* Slightly lighter background for the container */
+    border-radius: 15px; /* Rounded corners for the container */
+    padding: 20px; /* Padding around the content */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
 }
 
 .title {
     font-size: 2rem;
     padding: 10px;
-    background: #59249e;
+    background: #59249e; /* Title background */
     color: white;
     border-radius: 10px;
     margin-bottom: 15px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Subtle text shadow */
 }
 
 canvas {
-    border: 2px solid #59249e;
-    background-color: #e0f7fa;
+    border: 2px solid #59249e; /* Canvas border */
+    background-color: #3a3a3a; /* Dark background for the canvas */
     display: block;
     margin: 0 auto;
+    border-radius: 10px; /* Rounded corners for the canvas */
 }
 
 .button-container {
@@ -47,14 +53,42 @@ button {
     padding: 15px;
     font-size: 1.5rem;
     border: none;
-    background-color: #59249e;
+    background-color: #59249e; /* Button background */
     color: white;
     border-radius: 10px;
     cursor: pointer;
     flex: 1;
     margin: 0 5px;
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+button:hover {
+    background-color: #4a1e7a; /* Hover state */
 }
 
 button:active {
-    background-color: #4a1e7a;
+    transform: scale(0.95); /* Slightly shrink button on click */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.8rem; /* Adjust title size for smaller screens */
+    }
+
+    button {
+        font-size: 1.2rem; /* Adjust button size */
+        padding: 10px; /* Adjust button padding */
+    }
+}
+
+@media (max-width: 400px) {
+    .title {
+        font-size: 1.5rem; /* Further reduce title size for very small screens */
+    }
+
+    button {
+        font-size: 1rem; /* Further adjust button size */
+        padding: 8px; /* Further adjust button padding */
+    }
 }
