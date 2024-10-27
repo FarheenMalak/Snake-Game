@@ -6,13 +6,13 @@ canvas.width = 400;
 canvas.height = 400;
 
 // Game variables
-let snake = [{ x: 200, y: 200 }];
-let direction = { x: 0, y: 0 };
-let food = getRandomPosition();
+const boxSize = 20; // Size of each box (snake segment)
+let snake = [{ x: 200, y: 200 }]; // Initial snake position
+let direction = { x: 0, y: 0 }; // Initial direction (stationary)
+let food = getRandomPosition(); // Place the first food
 let score = 0;
-const boxSize = 20;
 
-// Listen for key events and button clicks
+// Add event listeners for keyboard and button inputs
 document.addEventListener('keydown', changeDirection);
 document.getElementById('up').addEventListener('click', () => setDirection(0, -1));
 document.getElementById('left').addEventListener('click', () => setDirection(-1, 0));
@@ -28,8 +28,10 @@ function drawGame() {
 
     // Draw the snake
     snake.forEach(segment => {
-        ctx.fillStyle = '#59249e';
+        ctx.fillStyle = '#59249e'; // Snake color
         ctx.fillRect(segment.x, segment.y, boxSize, boxSize);
+        ctx.strokeStyle = '#e0f7fa'; // Border for snake segments
+        ctx.strokeRect(segment.x, segment.y, boxSize, boxSize);
     });
 
     // Draw the food
@@ -37,45 +39,38 @@ function drawGame() {
     ctx.fillRect(food.x, food.y, boxSize, boxSize);
 
     // Move the snake
-    const head = { x: snake[0].x + direction.x * boxSize, y: snake[0].y + direction.y * boxSize };
-    snake.unshift(head);
+    const head = { 
+        x: snake[0].x + direction.x * boxSize, 
+        y: snake[0].y + direction.y * boxSize 
+    };
+    snake.unshift(head); // Add new head
 
-    // Check if the snake ate the food
+    // Check if the snake eats the food
     if (head.x === food.x && head.y === food.y) {
-        food = getRandomPosition();
+        food = getRandomPosition(); // Generate new food
         score++;
     } else {
-        snake.pop();
+        snake.pop(); // Remove the last segment if no food eaten
     }
 
     // Check for collisions
     if (checkCollision(head)) {
-        clearInterval(game);
-        alert('Game Over! Score: ' + score);
+        clearInterval(game); // Stop the game
+        alert('Game Over! Your Score: ' + score);
         resetGame();
     }
 }
 
 function changeDirection(event) {
-    switch (event.key) {
-        case 'ArrowUp':
-            setDirection(0, -1);
-            break;
-        case 'ArrowLeft':
-            setDirection(-1, 0);
-            break;
-        case 'ArrowDown':
-            setDirection(0, 1);
-            break;
-        case 'ArrowRight':
-            setDirection(1, 0);
-            break;
-    }
+    const { key } = event;
+    if (key === 'ArrowUp') setDirection(0, -1);
+    if (key === 'ArrowLeft') setDirection(-1, 0);
+    if (key === 'ArrowDown') setDirection(0, 1);
+    if (key === 'ArrowRight') setDirection(1, 0);
 }
 
 function setDirection(x, y) {
-    // Prevent reverse movement
-    if (x !== -direction.x && y !== -direction.y) {
+    if (x !== -direction.x && y !== -direction.y) { // Prevent reverse direction
         direction = { x, y };
     }
 }
@@ -88,8 +83,8 @@ function getRandomPosition() {
 
 function checkCollision(head) {
     return (
-        head.x < 0 || head.x >= canvas.width ||
-        head.y < 0 || head.y >= canvas.height ||
+        head.x < 0 || head.x >= canvas.width || 
+        head.y < 0 || head.y >= canvas.height || 
         snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)
     );
 }
