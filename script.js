@@ -28,7 +28,7 @@ function drawGame() {
 
     // Draw the snake
     snake.forEach(segment => {
-        ctx.fillStyle = '#59249e'; // Snake color
+        ctx.fillStyle = '#3792cb'; // Snake color
         ctx.fillRect(segment.x, segment.y, boxSize, boxSize);
         ctx.strokeStyle = '#e0f7fa'; // Segment border
         ctx.strokeRect(segment.x, segment.y, boxSize, boxSize);
