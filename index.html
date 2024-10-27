@@ -1,31 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snake Game</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="game-container">
-    <h1 class="game-title">🐍 Snake Game</h1>
-    <div class="game-board" id="gameBoard"></div>
-
-    <div class="game-info">
-      <h2 id="scoreDisplay">Score: 0</h2>
-      <button id="restartButton">Restart</button>
+    <div class="container">
+        <div class="title">Snake Game</div>
+        <canvas id="gameCanvas"></canvas>
+        <div class="button-container">
+            <button id="up">⬆️</button>
+            <button id="left">⬅️</button>
+            <button id="down">⬇️</button>
+            <button id="right">➡️</button>
+        </div>
     </div>
 
-    <div class="controls">
-      <button class="control-btn" id="upBtn">▲</button>
-      <div class="horizontal-controls">
-        <button class="control-btn" id="leftBtn">◀</button>
-        <button class="control-btn" id="rightBtn">▶</button>
-      </div>
-      <button class="control-btn" id="downBtn">▼</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
